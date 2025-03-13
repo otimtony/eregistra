@@ -10,5 +10,5 @@ public interface StudentService {
     Student saveStudent(Student student);
     Student updateStudent(Student student);
     void deleteStudent(Long id);
-    List<Student> searchStudent(String studentNumber);
+    List<Student> searchStudents(String studentNumber);
 }

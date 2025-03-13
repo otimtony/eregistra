@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("/students")
@@ -57,11 +58,10 @@ public class StudentController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam String query, Model model){
-        System.out.println("... query..." + query);
-//        model.addAttribute("students", studentService.searchStudent(query));
-//        return "students/students";
-        return null;
+    public String searchForStudents(@RequestParam("query") String query, Model model){
+        List<Student> searchResults = studentService.searchStudents(query);
+        model.addAttribute("students", searchResults);
+        return "students/students";
     }
 
 }

@@ -50,11 +50,9 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.deleteById(id);
     }
 
-
-
     @Override
-    public List<Student> searchStudent(String studentNumber) {
-        return studentRepository.findByStudentNumberContainingIgnoreCase(studentNumber);
+    public List<Student> searchStudents(String query) {
+        return studentRepository.findByStudentNumberContainingIgnoreCase(query);
     }
 
 }
